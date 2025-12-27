@@ -50,7 +50,7 @@
             text-align: center;
         }
         
-        /* Buttons with COLORED icons */
+        /* Buttons with EXACT icon colors */
         .button-group {
             display: flex;
             flex-direction: column;
@@ -79,14 +79,46 @@
             font-size: 18px;
         }
         
-        /* Google button with BLUE icon */
-        .btn-google i {
-            color: #4285F4; /* Google Blue */
+        /* Google button - MULTI-COLORED icon using SVG mask */
+        .btn-google {
+            position: relative;
         }
         
-        /* Apple button with WHITE icon */
+        .google-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                #4285F4 0deg 90deg,
+                #34A853 90deg 180deg,
+                #FBBC05 180deg 270deg,
+                #EA4335 270deg 360deg
+            );
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z' fill='%234285F4'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E") no-repeat center;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z' fill='%234285F4'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E") no-repeat center;
+        }
+        
+        /* Alternative: Use colored Google icon via Font Awesome with custom colors */
+        .fa-google {
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                #4285F4 0deg 90deg,
+                #34A853 90deg 180deg,
+                #FBBC05 180deg 270deg,
+                #EA4335 270deg 360deg
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Apple button - BLACK icon */
         .btn-apple i {
-            color: #fff;
+            color: #000; /* Black Apple icon */
+            background-color: #fff;
+            border-radius: 3px;
+            padding: 1px;
         }
         
         .btn:hover {
@@ -230,6 +262,13 @@
                 font-size: 40px;
             }
         }
+        
+        /* SIMPLER SOLUTION: Use images for exact colors */
+        .icon-img {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+        }
     </style>
 </head>
 <body>
@@ -244,14 +283,23 @@
     <div class="container">
         <h1 class="title">Sign in to X</h1>
         
-        <!-- Sign in buttons with COLORED icons -->
+        <!-- Sign in buttons with EXACT icon colors -->
         <div class="button-group">
             <button class="btn btn-google" onclick="signInWithGoogle()">
-                <i class="fab fa-google"></i>
+                <!-- Google icon with exact colors -->
+                <svg class="icon-img" viewBox="0 0 24 24" width="18" height="18">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
                 Sign in with Google
             </button>
             <button class="btn btn-apple" onclick="signInWithApple()">
-                <i class="fab fa-apple"></i>
+                <!-- Apple icon in BLACK -->
+                <svg class="icon-img" viewBox="0 0 24 24" width="18" height="18">
+                    <path fill="#000000" d="M14.94,5.19A4.38,4.38,0,0,0,16,2,4.44,4.44,0,0,0,13,3.52,4.17,4.17,0,0,0,12,6.61,3.69,3.69,0,0,0,14.94,5.19Zm2.52,7.44a4.51,4.51,0,0,1,2.16-3.81,4.66,4.66,0,0,0-3.66-2c-1.56-.16-3,.91-3.83.91s-2-.89-3.3-.87A4.92,4.92,0,0,0,4.69,9.39C2.93,12.45,4.24,17,6,19.47,6.8,20.68,7.8,22.05,9.12,22s1.75-.76,3.28-.76,2,.76,3.3.73,2.22-1.24,3.06-2.45a11,11,0,0,0,1.38-2.85A4.41,4.41,0,0,1,17.46,12.63Z"/>
+                </svg>
                 Sign in with Apple
             </button>
         </div>
