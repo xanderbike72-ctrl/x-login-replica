@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ALL CSS GOES HERE - NO SEPARATE FILE NEEDED */
         * {
             margin: 0;
             padding: 0;
@@ -15,15 +16,14 @@
         }
         
         body {
-            background-color: #000;
-            color: #fff;
+            background-color: #fff;
+            color: #0f1419;
             min-height: 100vh;
             padding: 20px;
             display: flex;
             flex-direction: column;
         }
         
-        /* Header */
         .header {
             display: flex;
             align-items: center;
@@ -34,7 +34,7 @@
         .close-btn {
             background: none;
             border: none;
-            color: #fff;
+            color: #0f1419;
             font-size: 22px;
             width: 36px;
             height: 36px;
@@ -47,44 +47,45 @@
         }
         
         .close-btn:hover {
-            background-color: rgba(239, 243, 244, 0.1);
+            background-color: #f7f9f9;
         }
         
         .x-logo {
             font-size: 30px;
+            color: #0f1419;
         }
         
-        /* Main Content */
         .container {
             flex: 1;
             max-width: 400px;
             width: 100%;
             margin: 0 auto;
+            padding-top: 20px;
         }
         
         .title {
             font-size: 31px;
             font-weight: 700;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             line-height: 36px;
+            color: #0f1419;
         }
         
-        /* Buttons */
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 24px;
+            gap: 12px;
+            margin-bottom: 28px;
         }
         
         .btn {
             padding: 14px 16px;
             border-radius: 9999px;
-            border: 1px solid #536471;
-            background-color: transparent;
-            color: #fff;
+            border: 1px solid #cfd9de;
+            background-color: #fff;
+            color: #0f1419;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -96,13 +97,13 @@
         .btn i {
             margin-right: 12px;
             font-size: 18px;
+            color: #0f1419;
         }
         
         .btn:hover {
-            background-color: rgba(239, 243, 244, 0.1);
+            background-color: #f7f9f9;
         }
         
-        /* Divider */
         .divider {
             display: flex;
             align-items: center;
@@ -114,50 +115,49 @@
         .divider::after {
             content: '';
             flex: 1;
-            border-bottom: 1px solid #2f3336;
+            border-bottom: 1px solid #e0e0e0;
         }
         
         .divider span {
-            padding: 0 16px;
-            color: #fff;
-            font-size: 15px;
+            padding: 0 12px;
+            color: #536471;
+            font-size: 14px;
             font-weight: 400;
         }
         
-        /* Form */
         .form-group {
             margin-bottom: 24px;
         }
         
         .input-container {
             position: relative;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
         
         .input-field {
             width: 100%;
-            padding: 18px 12px;
-            font-size: 17px;
-            background-color: transparent;
-            border: 1px solid #2f3336;
-            border-radius: 4px;
-            color: #fff;
+            padding: 20px 16px;
+            font-size: 16px;
+            background-color: #fff;
+            border: 2px solid #cfd9de;
+            border-radius: 8px;
+            color: #0f1419;
             outline: none;
         }
         
         .input-field:focus {
             border-color: #1d9bf0;
-            box-shadow: 0 0 0 1px #1d9bf0;
+            box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.2);
         }
         
         .input-label {
             position: absolute;
-            top: -10px;
-            left: 12px;
-            background-color: #000;
-            padding: 0 6px;
-            font-size: 13px;
-            color: #71767b;
+            top: -12px;
+            left: 10px;
+            background-color: #fff;
+            padding: 0 8px;
+            font-size: 12px;
+            color: #536471;
             z-index: 1;
         }
         
@@ -166,28 +166,28 @@
             padding: 16px;
             border-radius: 9999px;
             border: none;
-            background-color: #fff;
-            color: #000;
+            background-color: #0f1419;
+            color: #fff;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 8px;
+            margin-top: 12px;
             transition: background-color 0.2s;
         }
         
         .next-btn:hover {
-            background-color: #e6e6e6;
+            background-color: #272c30;
         }
         
-        /* Links */
         .forgot-link {
             display: block;
             text-align: center;
             color: #1d9bf0;
             text-decoration: none;
             font-size: 15px;
-            margin: 32px 0;
+            margin: 24px 0;
             padding: 12px;
+            font-weight: 500;
         }
         
         .forgot-link:hover {
@@ -196,8 +196,8 @@
         
         .signup-section {
             text-align: center;
-            margin-top: 40px;
-            color: #71767b;
+            margin-top: 32px;
+            color: #0f1419;
             font-size: 15px;
             padding: 16px;
         }
@@ -213,13 +213,12 @@
             text-decoration: underline;
         }
         
-        /* Footer */
         .footer {
             margin-top: 60px;
             padding-top: 24px;
-            border-top: 1px solid #2f3336;
+            border-top: 1px solid #e0e0e0;
             text-align: center;
-            color: #71767b;
+            color: #536471;
             font-size: 13px;
         }
         
@@ -232,7 +231,7 @@
         }
         
         .footer-links a {
-            color: #71767b;
+            color: #536471;
             text-decoration: none;
         }
         
@@ -240,7 +239,6 @@
             text-decoration: underline;
         }
         
-        /* Responsive */
         @media (max-width: 500px) {
             body {
                 padding: 16px;
@@ -248,7 +246,7 @@
             
             .title {
                 font-size: 23px;
-                margin-bottom: 24px;
+                margin-bottom: 32px;
             }
             
             .btn, .next-btn {
@@ -256,15 +254,15 @@
             }
         }
         
-        /* Focus styles for accessibility */
-        .btn:focus, .next-btn:focus, .input-field:focus {
-            outline: 2px solid #1d9bf0;
-            outline-offset: 2px;
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header with X logo -->
     <div class="header">
         <button class="close-btn" onclick="handleClose()">
             <i class="fas fa-times"></i>
@@ -274,11 +272,9 @@
         </div>
     </div>
     
-    <!-- Main Content -->
     <div class="container">
         <h1 class="title">Sign in to X</h1>
         
-        <!-- Sign in buttons -->
         <div class="button-group">
             <button class="btn" onclick="signInWithGoogle()">
                 <i class="fab fa-google"></i>
@@ -290,17 +286,15 @@
             </button>
         </div>
         
-        <!-- Divider -->
         <div class="divider">
             <span>or</span>
         </div>
         
-        <!-- Login form -->
         <form id="loginForm" onsubmit="handleLogin(event)">
             <div class="form-group">
                 <div class="input-container">
                     <span class="input-label">Phone, email address, or username</span>
-                    <input type="text" class="input-field" id="username" required autocomplete="username">
+                    <input type="text" class="input-field" id="username" required>
                 </div>
             </div>
             
@@ -309,19 +303,16 @@
             </button>
         </form>
         
-        <!-- Forgot password link -->
         <a href="#" class="forgot-link" onclick="forgotPassword()">
             Forgot password?
         </a>
         
-        <!-- Sign up section -->
         <div class="signup-section">
             Don't have an account?
             <a href="#" class="signup-link" onclick="signUp()">Sign up</a>
         </div>
     </div>
     
-    <!-- Footer -->
     <div class="footer">
         <div class="footer-links">
             <a href="#" onclick="showTerms()">Terms of Service</a>
@@ -332,48 +323,34 @@
     </div>
     
     <script>
-        // Handle form submission
         function handleLogin(event) {
             event.preventDefault();
             const username = document.getElementById('username').value.trim();
-            
-            // Demo usernames
-            const validUsers = ['demo@x.com', 'testuser', 'admin', 'user@example.com'];
+            const validUsers = ['demo@x.com', 'testuser', 'admin'];
             
             if (validUsers.includes(username)) {
-                // Show password screen
                 showPasswordScreen(username);
             } else {
-                alert('User not found. Try: demo@x.com, testuser, admin, or user@example.com');
+                alert('Try: demo@x.com, testuser, or admin');
             }
         }
         
-        // Show password screen
         function showPasswordScreen(username) {
             document.querySelector('.container').innerHTML = `
                 <h1 class="title">Enter your password</h1>
-                
-                <div style="color: #71767b; margin-bottom: 24px; font-size: 15px;">
+                <div style="color: #536471; margin-bottom: 24px; font-size: 15px;">
                     Enter your password for <strong>${username}</strong>
                 </div>
-                
                 <form id="passwordForm" onsubmit="checkPassword(event, '${username}')">
                     <div class="form-group">
                         <div class="input-container">
                             <span class="input-label">Password</span>
-                            <input type="password" class="input-field" id="password" required autocomplete="current-password">
+                            <input type="password" class="input-field" id="password" required>
                         </div>
                     </div>
-                    
-                    <button type="submit" class="next-btn">
-                        Sign in
-                    </button>
+                    <button type="submit" class="next-btn">Sign in</button>
                 </form>
-                
-                <a href="#" class="forgot-link" onclick="forgotPassword()">
-                    Forgot password?
-                </a>
-                
+                <a href="#" class="forgot-link" onclick="forgotPassword()">Forgot password?</a>
                 <div class="signup-section">
                     Don't have an account?
                     <a href="#" class="signup-link" onclick="signUp()">Sign up</a>
@@ -381,122 +358,40 @@
             `;
         }
         
-        // Check password
         function checkPassword(event, username) {
             event.preventDefault();
             const password = document.getElementById('password').value;
-            
-            // Demo passwords
             const validPasswords = {
                 'demo@x.com': 'password123',
                 'testuser': 'test123',
-                'admin': 'admin123',
-                'user@example.com': 'password'
+                'admin': 'admin123'
             };
             
             if (validPasswords[username] === password) {
-                // Show success
                 document.querySelector('.container').innerHTML = `
                     <div style="text-align: center; padding: 40px 0;">
                         <div style="font-size: 60px; color: #00ba7c; margin-bottom: 24px;">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <h2 style="font-size: 24px; margin-bottom: 16px;">Login Successful!</h2>
-                        <p style="color: #71767b; margin-bottom: 32px;">Welcome back to X, ${username}!</p>
-                        <button class="next-btn" onclick="goToHome()">
-                            Continue to X
-                        </button>
+                        <p style="color: #536471; margin-bottom: 32px;">Welcome back to X, ${username}!</p>
+                        <button class="next-btn" onclick="goToHome()">Continue to X</button>
                     </div>
                 `;
             } else {
-                alert('Incorrect password. Try: ' + (validPasswords[username] || 'password123'));
+                alert('Try: ' + (validPasswords[username] || 'password123'));
             }
         }
         
-        // Other functions
-        function handleClose() {
-            if (confirm('Discard changes and go back?')) {
-                alert('Would navigate back');
-            }
-        }
-        
-        function signInWithGoogle() {
-            alert('Google authentication would open here');
-        }
-        
-        function signInWithApple() {
-            alert('Apple authentication would open here');
-        }
-        
-        function forgotPassword() {
-            const email = prompt('Enter your email to reset password:');
-            if (email) {
-                alert(`Password reset link sent to ${email} (demo)`);
-            }
-        }
-        
-        function signUp() {
-            alert('Sign up form would open');
-        }
-        
-        function goToHome() {
-            alert('Redirecting to X home feed...');
-        }
-        
-        function showTerms() {
-            alert('Terms of Service would display');
-        }
-        
-        function showPrivacy() {
-            alert('Privacy Policy would display');
-        }
-        
-        function showCookies() {
-            alert('Cookie Policy would display');
-        }
-        
-        // Add ripple effect to buttons
-        document.addEventListener('click', function(e) {
-            if (e.target.matches('.btn, .next-btn, .close-btn')) {
-                const button = e.target;
-                const ripple = document.createElement('span');
-                const rect = button.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.7);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    width: ${size}px;
-                    height: ${size}px;
-                    top: ${y}px;
-                    left: ${x}px;
-                    pointer-events: none;
-                `;
-                
-                button.style.position = 'relative';
-                button.style.overflow = 'hidden';
-                button.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            }
-        });
-        
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        function handleClose() { alert('Close'); }
+        function signInWithGoogle() { alert('Google sign in'); }
+        function signInWithApple() { alert('Apple sign in'); }
+        function forgotPassword() { alert('Forgot password'); }
+        function signUp() { alert('Sign up'); }
+        function goToHome() { alert('Go to home'); }
+        function showTerms() { alert('Terms'); }
+        function showPrivacy() { alert('Privacy'); }
+        function showCookies() { alert('Cookies'); }
     </script>
 </body>
 </html>
