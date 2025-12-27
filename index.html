@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in to X</title>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- UPDATED FONT AWESOME LINK -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,79 +15,57 @@
         }
         
         body {
-            background-color: #fff;
-            color: #0f1419;
+            background-color: #000;
+            color: #fff;
             min-height: 100vh;
             padding: 20px;
             display: flex;
             flex-direction: column;
-        }
-        
-        /* Header */
-        .header {
-            display: flex;
             align-items: center;
-            padding: 12px 0;
-            margin-bottom: 40px;
         }
         
-        .close-btn {
-            background: none;
-            border: none;
-            color: #0f1419;
-            font-size: 22px;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-right: 16px;
-            cursor: pointer;
+        /* Centered X Logo */
+        .logo-container {
+            text-align: center;
+            margin: 40px 0 60px 0;
         }
         
-        .close-btn:hover {
-            background-color: #f7f9f9;
-        }
-        
-        .x-logo {
-            font-size: 30px;
-            color: #0f1419;
+        .big-logo {
+            font-size: 50px;
+            color: #fff;
+            margin-bottom: 20px;
         }
         
         /* Main Content */
         .container {
-            flex: 1;
             max-width: 400px;
             width: 100%;
-            margin: 0 auto;
-            padding-top: 20px;
         }
         
         .title {
             font-size: 31px;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             line-height: 36px;
-            color: #0f1419;
+            text-align: center;
         }
         
-        /* Buttons */
+        /* Buttons with COLORED icons */
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 28px;
+            gap: 16px;
+            margin-bottom: 24px;
         }
         
         .btn {
             padding: 14px 16px;
             border-radius: 9999px;
-            border: 1px solid #cfd9de;
-            background-color: #fff;
-            color: #0f1419;
+            border: 1px solid #536471;
+            background-color: #000;
+            color: #fff;
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -100,11 +77,20 @@
         .btn i {
             margin-right: 12px;
             font-size: 18px;
-            color: #0f1419;
+        }
+        
+        /* Google button with BLUE icon */
+        .btn-google i {
+            color: #4285F4; /* Google Blue */
+        }
+        
+        /* Apple button with WHITE icon */
+        .btn-apple i {
+            color: #fff;
         }
         
         .btn:hover {
-            background-color: #f7f9f9;
+            background-color: rgba(239, 243, 244, 0.1);
         }
         
         /* Divider */
@@ -119,51 +105,34 @@
         .divider::after {
             content: '';
             flex: 1;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #2f3336;
         }
         
         .divider span {
-            padding: 0 12px;
-            color: #536471;
-            font-size: 14px;
+            padding: 0 16px;
+            color: #fff;
+            font-size: 15px;
             font-weight: 400;
         }
         
         /* Form */
         .form-group {
-            margin-bottom: 24px;
-        }
-        
-        .input-container {
-            position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
         
         .input-field {
             width: 100%;
-            padding: 20px 16px;
-            font-size: 16px;
-            background-color: #fff;
-            border: 2px solid #cfd9de;
-            border-radius: 8px;
-            color: #0f1419;
+            padding: 18px 12px;
+            font-size: 17px;
+            background-color: transparent;
+            border: 1px solid #2f3336;
+            border-radius: 4px;
+            color: #fff;
             outline: none;
         }
         
         .input-field:focus {
             border-color: #1d9bf0;
-            box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.2);
-        }
-        
-        .input-label {
-            position: absolute;
-            top: -12px;
-            left: 10px;
-            background-color: #fff;
-            padding: 0 8px;
-            font-size: 12px;
-            color: #536471;
-            z-index: 1;
         }
         
         .next-btn {
@@ -171,17 +140,17 @@
             padding: 16px;
             border-radius: 9999px;
             border: none;
-            background-color: #0f1419;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 12px;
+            margin-top: 8px;
             transition: background-color 0.2s;
         }
         
         .next-btn:hover {
-            background-color: #272c30;
+            background-color: #e6e6e6;
         }
         
         /* Links */
@@ -191,9 +160,8 @@
             color: #1d9bf0;
             text-decoration: none;
             font-size: 15px;
-            margin: 24px 0;
+            margin: 32px 0;
             padding: 12px;
-            font-weight: 500;
         }
         
         .forgot-link:hover {
@@ -202,10 +170,9 @@
         
         .signup-section {
             text-align: center;
-            margin-top: 32px;
-            color: #0f1419;
+            margin-top: 40px;
+            color: #71767b;
             font-size: 15px;
-            padding: 16px;
         }
         
         .signup-link {
@@ -223,10 +190,12 @@
         .footer {
             margin-top: 60px;
             padding-top: 24px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #2f3336;
             text-align: center;
-            color: #536471;
+            color: #71767b;
             font-size: 13px;
+            width: 100%;
+            max-width: 400px;
         }
         
         .footer-links {
@@ -238,7 +207,7 @@
         }
         
         .footer-links a {
-            color: #536471;
+            color: #71767b;
             text-decoration: none;
         }
         
@@ -248,55 +217,54 @@
         
         /* Responsive */
         @media (max-width: 500px) {
-            body {
-                padding: 16px;
-            }
-            
             .title {
                 font-size: 23px;
-                margin-bottom: 32px;
+                margin-bottom: 24px;
             }
             
             .btn, .next-btn {
                 padding: 12px 16px;
             }
+            
+            .big-logo {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <button class="close-btn" onclick="handleClose()">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="x-logo">
+    <!-- Centered Big X Logo -->
+    <div class="logo-container">
+        <div class="big-logo">
             <i class="fab fa-x-twitter"></i>
         </div>
     </div>
     
+    <!-- Main Content -->
     <div class="container">
         <h1 class="title">Sign in to X</h1>
         
+        <!-- Sign in buttons with COLORED icons -->
         <div class="button-group">
-            <button class="btn" onclick="signInWithGoogle()">
+            <button class="btn btn-google" onclick="signInWithGoogle()">
                 <i class="fab fa-google"></i>
                 Sign in with Google
             </button>
-            <button class="btn" onclick="signInWithApple()">
+            <button class="btn btn-apple" onclick="signInWithApple()">
                 <i class="fab fa-apple"></i>
                 Sign in with Apple
             </button>
         </div>
         
+        <!-- Divider -->
         <div class="divider">
             <span>or</span>
         </div>
         
+        <!-- Login form -->
         <form id="loginForm" onsubmit="handleLogin(event)">
             <div class="form-group">
-                <div class="input-container">
-                    <span class="input-label">Phone, email address, or username</span>
-                    <input type="text" class="input-field" id="username" required>
-                </div>
+                <input type="text" class="input-field" id="username" placeholder="Phone, email address, or username" required>
             </div>
             
             <button type="submit" class="next-btn">
@@ -304,16 +272,19 @@
             </button>
         </form>
         
+        <!-- Forgot password link -->
         <a href="#" class="forgot-link" onclick="forgotPassword()">
             Forgot password?
         </a>
         
+        <!-- Sign up section -->
         <div class="signup-section">
             Don't have an account?
             <a href="#" class="signup-link" onclick="signUp()">Sign up</a>
         </div>
     </div>
     
+    <!-- Footer -->
     <div class="footer">
         <div class="footer-links">
             <a href="#" onclick="showTerms()">Terms of Service</a>
@@ -324,34 +295,45 @@
     </div>
     
     <script>
+        // Handle form submission
         function handleLogin(event) {
             event.preventDefault();
             const username = document.getElementById('username').value.trim();
-            const validUsers = ['demo@x.com', 'testuser', 'admin'];
+            
+            // Demo usernames
+            const validUsers = ['demo@x.com', 'testuser', 'admin', 'user@example.com'];
             
             if (validUsers.includes(username)) {
+                // Show password screen
                 showPasswordScreen(username);
             } else {
-                alert('Try: demo@x.com, testuser, or admin');
+                alert('User not found. Try: demo@x.com, testuser, admin, or user@example.com');
             }
         }
         
+        // Show password screen
         function showPasswordScreen(username) {
             document.querySelector('.container').innerHTML = `
                 <h1 class="title">Enter your password</h1>
-                <div style="color: #536471; margin-bottom: 24px; font-size: 15px;">
-                    Enter your password for <strong>${username}</strong>
+                
+                <div style="color: #71767b; margin-bottom: 24px; font-size: 15px; text-align: center;">
+                    Enter your password for <strong style="color: #fff;">${username}</strong>
                 </div>
+                
                 <form id="passwordForm" onsubmit="checkPassword(event, '${username}')">
                     <div class="form-group">
-                        <div class="input-container">
-                            <span class="input-label">Password</span>
-                            <input type="password" class="input-field" id="password" required>
-                        </div>
+                        <input type="password" class="input-field" id="password" placeholder="Password" required>
                     </div>
-                    <button type="submit" class="next-btn">Sign in</button>
+                    
+                    <button type="submit" class="next-btn">
+                        Sign in
+                    </button>
                 </form>
-                <a href="#" class="forgot-link" onclick="forgotPassword()">Forgot password?</a>
+                
+                <a href="#" class="forgot-link" onclick="forgotPassword()">
+                    Forgot password?
+                </a>
+                
                 <div class="signup-section">
                     Don't have an account?
                     <a href="#" class="signup-link" onclick="signUp()">Sign up</a>
@@ -359,40 +341,73 @@
             `;
         }
         
+        // Check password
         function checkPassword(event, username) {
             event.preventDefault();
             const password = document.getElementById('password').value;
+            
+            // Demo passwords
             const validPasswords = {
                 'demo@x.com': 'password123',
                 'testuser': 'test123',
-                'admin': 'admin123'
+                'admin': 'admin123',
+                'user@example.com': 'password'
             };
             
             if (validPasswords[username] === password) {
+                // Show success
                 document.querySelector('.container').innerHTML = `
                     <div style="text-align: center; padding: 40px 0;">
                         <div style="font-size: 60px; color: #00ba7c; margin-bottom: 24px;">
                             <i class="fas fa-check-circle"></i>
                         </div>
-                        <h2 style="font-size: 24px; margin-bottom: 16px;">Login Successful!</h2>
-                        <p style="color: #536471; margin-bottom: 32px;">Welcome back to X, ${username}!</p>
-                        <button class="next-btn" onclick="goToHome()">Continue to X</button>
+                        <h2 style="font-size: 24px; margin-bottom: 16px; color: #fff;">Login Successful!</h2>
+                        <p style="color: #71767b; margin-bottom: 32px;">Welcome back to X, ${username}!</p>
+                        <button class="next-btn" onclick="goToHome()">
+                            Continue to X
+                        </button>
                     </div>
                 `;
             } else {
-                alert('Try: ' + (validPasswords[username] || 'password123'));
+                alert('Incorrect password. Try: ' + (validPasswords[username] || 'password123'));
             }
         }
         
-        function handleClose() { alert('Close'); }
-        function signInWithGoogle() { alert('Google sign in'); }
-        function signInWithApple() { alert('Apple sign in'); }
-        function forgotPassword() { alert('Forgot password'); }
-        function signUp() { alert('Sign up'); }
-        function goToHome() { alert('Go to home'); }
-        function showTerms() { alert('Terms'); }
-        function showPrivacy() { alert('Privacy'); }
-        function showCookies() { alert('Cookies'); }
+        // Other functions
+        function signInWithGoogle() {
+            alert('Google authentication would open here');
+        }
+        
+        function signInWithApple() {
+            alert('Apple authentication would open here');
+        }
+        
+        function forgotPassword() {
+            const email = prompt('Enter your email to reset password:');
+            if (email) {
+                alert(`Password reset link sent to ${email} (demo)`);
+            }
+        }
+        
+        function signUp() {
+            alert('Sign up form would open');
+        }
+        
+        function goToHome() {
+            alert('Redirecting to X home feed...');
+        }
+        
+        function showTerms() {
+            alert('Terms of Service would display');
+        }
+        
+        function showPrivacy() {
+            alert('Privacy Policy would display');
+        }
+        
+        function showCookies() {
+            alert('Cookie Policy would display');
+        }
     </script>
 </body>
 </html>
