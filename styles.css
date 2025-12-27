@@ -1,0 +1,318 @@
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    background-color: #000;
+    border-radius: 16px;
+    width: 600px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid #2f3336;
+    position: relative;
+}
+
+.modal-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+}
+
+.modal-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-logo i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.modal-body {
+    padding: 0 80px 48px;
+}
+
+.modal-title {
+    font-size: 31px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.btn-google-modal, .btn-apple-modal {
+    width: 100%;
+}
+
+/* Form Styles */
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 8px;
+    font-size: 17px;
+    background-color: transparent;
+    border: 1px solid #2f3336;
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #1d9bf0;
+}
+
+.input-group input::placeholder {
+    color: #71767b;
+}
+
+.show-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #71767b;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.show-password:hover {
+    color: #fff;
+}
+
+.btn-login-modal {
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    margin-top: 32px;
+    border: none;
+}
+
+.btn-login-modal:hover {
+    background-color: #e6e6e6;
+}
+
+.form-footer {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.forgot-password {
+    display: block;
+    color: #1d9bf0;
+    text-decoration: none;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.signup-link {
+    color: #71767b;
+    font-size: 15px;
+}
+
+.signup-link a {
+    color: #1d9bf0;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Success Message */
+.success-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00ba7c;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 12px;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.success-message i {
+    font-size: 20px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Create Account Modal */
+.modal.create-account {
+    max-width: 600px;
+}
+
+.modal.create-account .modal-body {
+    padding: 0 32px 32px;
+}
+
+.account-step {
+    display: none;
+}
+
+.account-step.active {
+    display: block;
+}
+
+.step-header {
+    margin-bottom: 24px;
+}
+
+.step-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.step-subtitle {
+    color: #71767b;
+    font-size: 15px;
+}
+
+.account-form .input-group {
+    margin-bottom: 24px;
+}
+
+.date-inputs {
+    display: flex;
+    gap: 12px;
+}
+
+.date-inputs select {
+    flex: 1;
+    padding: 16px 8px;
+    background-color: transparent;
+    border: 1px solid #2f3336;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.date-inputs option {
+    background-color: #000;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.btn-next, .btn-back {
+    background-color: #fff;
+    color: #000;
+    border: none;
+}
+
+.btn-next:hover, .btn-back:hover {
+    background-color: #e6e6e6;
+}
+
+.btn-back {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #536471;
+}
+
+.btn-back:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .modal-body {
+        padding: 0 24px 32px;
+    }
+    
+    .modal-title {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+    }
+    
+    .modal-header {
+        padding: 12px;
+    }
+    
+    .modal-body {
+        padding: 0 16px 24px;
+    }
+}
