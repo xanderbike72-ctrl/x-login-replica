@@ -1,3 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    position: relative;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.logo i {
+    font-size: 380px;
+    color: #fff;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+}
+
+/* Right Section */
+.right-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.login-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.x-logo {
+    margin-bottom: 60px;
+}
+
+.x-logo i {
+    font-size: 50px;
+    color: #fff;
+}
+
+.heading {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    line-height: 84px;
+    letter-spacing: -1.2px;
+}
+
+.subheading {
+    font-size: 31px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    line-height: 36px;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    padding: 12px 16px;
+    border-radius: 9999px;
+    border: 1px solid #536471;
+    background-color: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    width: 300px;
+}
+
+.btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.btn-google:hover, .btn-apple:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+}
+
+.btn-create {
+    background-color: #1d9bf0;
+    border-color: #1d9bf0;
+}
+
+.btn-create:hover {
+    background-color: #1a8cd8;
+}
+
+.btn-login {
+    border-color: #536471;
+    margin-top: 20px;
+}
+
+.btn-login:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    margin: 8px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #2f3336;
+}
+
+.divider span {
+    padding: 0 16px;
+    color: #71767b;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+/* Terms */
+.terms {
+    font-size: 11px;
+    color: #71767b;
+    line-height: 12px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.terms a {
+    color: #1d9bf0;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Login Section */
+.login-section h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #e7e9ea;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 40px;
+    padding: 12px 0;
+    font-size: 13px;
+}
+
+.footer-links a {
+    color: #71767b;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    width: 100%;
+    margin-top: 16px;
+    color: #71767b;
+    font-size: 13px;
+}
+
 /* Modal Styles */
 .modal-overlay {
     position: fixed;
@@ -201,94 +421,47 @@
     }
 }
 
-/* Create Account Modal */
-.modal.create-account {
-    max-width: 600px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .left-section {
+        display: none;
+    }
+    
+    .right-section {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .login-container {
+        text-align: center;
+    }
+    
+    .x-logo {
+        margin-bottom: 40px;
+    }
 }
 
-.modal.create-account .modal-body {
-    padding: 0 32px 32px;
-}
-
-.account-step {
-    display: none;
-}
-
-.account-step.active {
-    display: block;
-}
-
-.step-header {
-    margin-bottom: 24px;
-}
-
-.step-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.step-subtitle {
-    color: #71767b;
-    font-size: 15px;
-}
-
-.account-form .input-group {
-    margin-bottom: 24px;
-}
-
-.date-inputs {
-    display: flex;
-    gap: 12px;
-}
-
-.date-inputs select {
-    flex: 1;
-    padding: 16px 8px;
-    background-color: transparent;
-    border: 1px solid #2f3336;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-}
-
-.date-inputs option {
-    background-color: #000;
-}
-
-.modal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 32px;
-}
-
-.btn-next, .btn-back {
-    background-color: #fff;
-    color: #000;
-    border: none;
-}
-
-.btn-next:hover, .btn-back:hover {
-    background-color: #e6e6e6;
-}
-
-.btn-back {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #536471;
-}
-
-.btn-back:hover {
-    background-color: rgba(239, 243, 244, 0.1);
-}
-
-/* Responsive Modal */
-@media (max-width: 768px) {
-    .modal {
-        width: 90%;
-        max-width: 400px;
+@media (max-width: 500px) {
+    .heading {
+        font-size: 42px;
+        line-height: 52px;
+    }
+    
+    .subheading {
+        font-size: 23px;
+    }
+    
+    .btn {
+        width: 280px;
+    }
+    
+    .divider {
+        width: 280px;
+    }
+    
+    .terms {
+        width: 280px;
     }
     
     .modal-body {
@@ -315,4 +488,37 @@
     .modal-body {
         padding: 0 16px 24px;
     }
+}
+
+/* Ripple effect */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Modal animation */
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal {
+    animation: modalSlideIn 0.3s ease;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.3);
 }
