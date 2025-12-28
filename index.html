@@ -6,8 +6,12 @@
     <title>Sign in to X</title>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    
+    <!-- Your styles remain the same -->
     <style>
-        /* ALL YOUR CSS STYLING HERE - SAME AS BEFORE */
         * {
             margin: 0;
             padding: 0;
@@ -19,23 +23,21 @@
             background-color: #000;
             color: #fff;
             min-height: 100vh;
-            padding: 16px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         
-        /* ... KEEP ALL YOUR EXISTING CSS ... */
-        /* COPY YOUR CSS FROM PREVIOUS CODE */
+        /* All your existing CSS styles remain exactly the same */
+        /* ... [ALL YOUR EXISTING CSS] ... */
         
     </style>
 </head>
 <body>
-    <!-- Your HTML structure - same as before -->
-    <div class="header">
-        <button class="back-btn" onclick="handleClose()">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="x-logo-small">
+    <!-- Your HTML structure remains the same -->
+    <div class="logo-container">
+        <div class="big-logo">
             <i class="fab fa-x-twitter"></i>
         </div>
     </div>
@@ -43,14 +45,14 @@
     <div class="container">
         <h1 class="title">Sign in to X</h1>
         
-        <!-- Demo mode message -->
-        <div style="background-color: #f4212e; color: white; padding: 12px; border-radius: 8px; margin: 16px 0; text-align: center;">
-            ⚠️ Firebase temporarily disabled. Using demo mode.
+        <!-- Firebase status message (REMOVE THIS IF YOU DON'T WANT IT) -->
+        <div id="firebaseStatus" style="display: none; background: #1d9bf0; color: white; padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+            <!-- This is where your message appears -->
         </div>
         
-        <!-- Rest of your HTML - same as before -->
         <div class="button-group">
-            <button class="btn" onclick="signInWithGoogle()">
+            <!-- Google button now actually works with Firebase -->
+            <button class="btn btn-google" onclick="signInWithGoogle()">
                 <svg class="icon-img" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -59,7 +61,8 @@
                 </svg>
                 Sign in with Google
             </button>
-            <button class="btn" onclick="signInWithApple()">
+            
+            <button class="btn btn-apple" onclick="signInWithApple()">
                 <svg class="icon-img" viewBox="0 0 24 24">
                     <path fill="#000000" d="M14.94,5.19A4.38,4.38,0,0,0,16,2,4.44,4.44,0,0,0,13,3.52,4.17,4.17,0,0,0,12,6.61,3.69,3.69,0,0,0,14.94,5.19Zm2.52,7.44a4.51,4.51,0,0,1,2.16-3.81,4.66,4.66,0,0,0-3.66-2c-1.56-.16-3,.91-3.83.91s-2-.89-3.3-.87A4.92,4.92,0,0,0,4.69,9.39C2.93,12.45,4.24,17,6,19.47,6.8,20.68,7.8,22.05,9.12,22s1.75-.76,3.28-.76,2,.76,3.3.73,2.22-1.24,3.06-2.45a11,11,0,0,0,1.38-2.85A4.41,4.41,0,0,1,17.46,12.63Z"/>
                 </svg>
@@ -71,28 +74,9 @@
             <span>or</span>
         </div>
         
-        <form id="loginForm">
-            <div class="form-group">
-                <input type="email" class="input-field" id="email" placeholder="Email address" required>
-            </div>
-            
-            <div class="form-group">
-                <input type="password" class="input-field" id="password" placeholder="Password" required>
-            </div>
-            
-            <button type="submit" class="next-btn">
-                Sign in
-            </button>
-        </form>
+        <!-- The rest of your HTML remains exactly the same -->
+        <!-- ... [YOUR EXISTING HTML] ... -->
         
-        <a href="#" class="forgot-link" onclick="forgotPassword()">
-            Forgot password?
-        </a>
-        
-        <div class="signup-section">
-            Don't have an account?
-            <a href="#" class="signup-link" onclick="showSignUp()">Sign up</a>
-        </div>
     </div>
     
     <div class="footer">
@@ -103,54 +87,94 @@
         </div>
         <div>© 2024 X Corp.</div>
     </div>
-    
+
     <script>
-        // TEMPORARY DEMO MODE (Safe - no API keys)
-        function showMessage(text, type) {
-            alert(text); // Simple alerts for demo
+        // ====== FIREBASE SETUP ======
+        // Replace with YOUR actual Firebase config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY_HERE",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        
+        // Initialize Firebase
+        let firebaseApp;
+        let firebaseAuth;
+        
+        try {
+            firebaseApp = firebase.initializeApp(firebaseConfig);
+            firebaseAuth = firebase.auth();
+            console.log("Firebase initialized successfully");
+        } catch (error) {
+            console.error("Firebase initialization error:", error);
+            showFirebaseMessage("Firebase temporarily disabled. Using demo mode.");
         }
         
-        // Demo login (no Firebase)
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        function showFirebaseMessage(message) {
+            const statusDiv = document.getElementById('firebaseStatus');
+            if (statusDiv) {
+                statusDiv.textContent = message;
+                statusDiv.style.display = 'block';
+            }
+        }
+        
+        // ====== ACTUAL FIREBASE AUTHENTICATION ======
+        async function signInWithGoogle() {
+            if (!firebaseAuth) {
+                alert("Firebase is in demo mode. Google sign-in would open here.");
+                return;
+            }
             
-            if (email && password) {
-                alert('Demo: Would sign in with Firebase\nEmail: ' + email + '\n\n⚠️ Note: Firebase API key needs to be secured.');
-                document.getElementById('password').value = '';
+            try {
+                const provider = new firebase.auth.GoogleAuthProvider();
+                const result = await firebaseAuth.signInWithPopup(provider);
+                alert(`Welcome ${result.user.displayName}! Login successful with Firebase.`);
+                // Redirect to home page
+                // window.location.href = '/home.html';
+            } catch (error) {
+                console.error("Google sign-in error:", error);
+                alert("Google sign-in failed. Check console for details.");
             }
-        });
-        
-        function signInWithGoogle() {
-            alert('Demo: Google OAuth would open\n\n⚠️ Note: Firebase API key needs to be secured.');
         }
         
+        // ====== YOUR EXISTING FUNCTIONS (UPDATED) ======
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            
+            // Demo usernames
+            const validUsers = ['demo@x.com', 'testuser', 'admin', 'user@example.com'];
+            
+            if (validUsers.includes(username)) {
+                showPasswordScreen(username);
+            } else {
+                alert('User not found. Try: demo@x.com, testuser, admin, or user@example.com');
+            }
+        }
+        
+        function showPasswordScreen(username) {
+            // ... [YOUR EXISTING CODE] ...
+        }
+        
+        function checkPassword(event, username) {
+            // ... [YOUR EXISTING CODE] ...
+        }
+        
+        // Update Apple sign-in to check Firebase
         function signInWithApple() {
-            alert('Demo: Apple OAuth would open');
-        }
-        
-        function forgotPassword() {
-            const email = prompt('Enter email to reset:');
-            if (email) alert('Demo: Reset email would be sent to ' + email);
-        }
-        
-        function showSignUp() {
-            const email = prompt('Enter email for new account:');
-            const password = prompt('Enter password:');
-            if (email && password) {
-                alert('Demo: Account would be created for ' + email);
-                document.getElementById('email').value = email;
+            if (!firebaseAuth) {
+                alert("Firebase is in demo mode. Apple authentication would open here.");
+                return;
             }
+            alert("Apple authentication would use Firebase Auth.");
         }
         
-        function handleClose() {
-            if (confirm('Discard changes?')) window.history.back();
-        }
+        // Your other functions remain the same
+        // ... [YOUR EXISTING FUNCTIONS] ...
         
-        function showTerms() { alert('Terms of Service'); }
-        function showPrivacy() { alert('Privacy Policy'); }
-        function showCookies() { alert('Cookie Policy'); }
     </script>
 </body>
 </html>
